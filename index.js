@@ -5,7 +5,8 @@ import mineflayer from "mineflayer";
 import fs from "fs";
 import mongoose from "mongoose";
 import { findBestMatch } from "string-similarity";
-
+import { configDotenv } from "dotenv";
+configDotenv();
 // Config setup
 
 const config = process.env;
