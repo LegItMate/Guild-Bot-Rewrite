@@ -7,7 +7,7 @@ import { MessageAttachment } from "discord.js";
 const { createCanvas, loadImage, registerFont } = canvasPackage;
 const canvas = createCanvas(640, 640);
 const ctx = canvas.getContext('2d');
-const config = JSON.parse(fs.readFileSync("./json/config.json", "utf-8", err => { if (err) console.log(err); }));
+const config = process.env;
 
 // The main function for making photos - this took like 10h cuz i was learning how to use canvas lmfao
 export async function statsPhoto (username, info, uuid, client) {

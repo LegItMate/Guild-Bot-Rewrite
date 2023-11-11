@@ -8,7 +8,7 @@ import { findBestMatch } from "string-similarity";
 
 // Config setup
 
-const config = JSON.parse(fs.readFileSync("json/config.json", "utf-8", err => { if (err) console.log(err); }));
+const config = process.env;
 
 // Discord client setup
 
@@ -30,7 +30,12 @@ const bot = mineflayer.createBot({
 
 // Making config easier to use
 
-bot.config = config;
+bot.config = {
+    ...config,
+    staff: process.env.staff.split(','),
+    frag: process.env.frag === 'false' ? false : true,
+    gJoinStats: process.env.gJoinStats === 'false' ? false : true,
+};
 
 // Catching login errors with the bot
 
